@@ -4,8 +4,9 @@ public class DissolveAnimator : MonoBehaviour
 {
     public bool StartAnimation = false;
     public float AnimationSpeed = 1.5f;
+    
+    public bool IsAnimating = false;
 
-    private bool IsAnimating = false;
     private bool Appearing = false;
 
     void Update()

@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -624,7 +624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 1251804353}
   - component: {fileID: 1251804352}
   - component: {fileID: 1251804356}
+  - component: {fileID: 1251804358}
   - component: {fileID: 1251804357}
   m_Layer: 0
   m_Name: Player
@@ -964,8 +965,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartAnimation: 1
+  StartAnimation: 0
   AnimationSpeed: 1.5
+  IsAnimating: 0
+--- !u!114 &1251804358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251804351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa380717d958b041b49f6f2a120766e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DissolveAnimator: {fileID: 1251804357}
+  Rigidbody: {fileID: 1251804356}
 --- !u!1 &1455309568
 GameObject:
   m_ObjectHideFlags: 0
