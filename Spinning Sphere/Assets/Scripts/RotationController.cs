@@ -7,11 +7,11 @@ public class RotationController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Transform.Rotate(new Vector3(0.0f, 0.0f, -RotationSpeed * Time.deltaTime));
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Transform.Rotate(new Vector3(0.0f, 0.0f, RotationSpeed * Time.deltaTime));
         }

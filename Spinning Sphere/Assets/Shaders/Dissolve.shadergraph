@@ -23,9 +23,6 @@
         },
         {
             "m_Id": "df482ee017b240e290376831b7621753"
-        },
-        {
-            "m_Id": "632ae97326ea407e9711489c5de6f53d"
         }
     ],
     "m_Keywords": [],
@@ -1062,34 +1059,6 @@
     },
     "m_Property": {
         "m_Id": "ee0fae7d507a4dd9ad1705e72b615b3e"
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "632ae97326ea407e9711489c5de6f53d",
-    "m_Guid": {
-        "m_GuidSerialized": "72c2a0c5-7440-462f-9dcb-993e6ffb63f5"
-    },
-    "m_Name": "Ambient Occlusion",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Ambient Occlusion",
-    "m_DefaultReferenceName": "_Ambient_Occlusion",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -2137,9 +2106,6 @@
         },
         {
             "m_Id": "df482ee017b240e290376831b7621753"
-        },
-        {
-            "m_Id": "632ae97326ea407e9711489c5de6f53d"
         }
     ]
 }
