@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DissolveSpawn : MonoBehaviour
+public class PlayerSpawn : MonoBehaviour
 {
     public DissolveAnimator DissolveAnimator;
     public Rigidbody Rigidbody;
