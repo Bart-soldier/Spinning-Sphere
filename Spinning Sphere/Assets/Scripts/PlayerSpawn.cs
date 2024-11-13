@@ -6,7 +6,7 @@ public class PlayerSpawn : MonoBehaviour
     public DissolveAnimator PlayerDissolveAnimator;
     public Rigidbody Rigidbody;
 
-    public EnvironmentController EnvironmentSpawner;
+    public EnvironmentController EnvironmentController;
 
     public bool HasSpawned = false;
     
@@ -17,7 +17,7 @@ public class PlayerSpawn : MonoBehaviour
         Rigidbody.useGravity = false;
         this.GetComponent<Renderer>().material.SetFloat("_Animation", 1.0f);
 
-        EnvironmentSpawner.Spawn = true;
+        EnvironmentController.Spawn = true;
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class PlayerSpawn : MonoBehaviour
             return;
         }
 
-        if(!Spawning && EnvironmentSpawner.HasSpawned)
+        if(!Spawning && EnvironmentController.HasSpawned)
         {
             SpawnPlayer();
         }
@@ -37,6 +37,7 @@ public class PlayerSpawn : MonoBehaviour
             Spawning = false;
             HasSpawned = true;
             Rigidbody.useGravity = true;
+            EnvironmentController.Animate = true;
         }
     }
 

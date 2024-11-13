@@ -45,4 +45,16 @@ public class EnvironmentController : MonoBehaviour
             HasSpawned = true;
         }
     }
+
+    private void AnimateIfApplicable()
+    {
+        if(Animate)
+        {
+            //transform.localScale = new Vector3(0.0f, 0.0f, 4.0f);
+            //transform.localScale = Vector3.Lerp(transform.localScale, SpeedAnimationEnd, 0.1f);
+
+            //if (transform.localScale == SpeedAnimationEnd)
+            //    Animate = false;
+        }
+    }
 }
