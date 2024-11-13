@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dd731ecf194af4a85b486b30f7baf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 330585546}
   RotationSpeed: 90
 --- !u!1 &368473333
 GameObject:
@@ -353,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!23 &368473336
 MeshRenderer:
@@ -558,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!1 &411061427
 GameObject:
@@ -607,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!23 &411061430
 MeshRenderer:
@@ -709,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!23 &446959232
 MeshRenderer:
@@ -914,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!1 &832575517
 GameObject:
@@ -1115,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!1 &953896887
 GameObject:
@@ -1164,7 +1163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dd731ecf194af4a85b486b30f7baf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 953896888}
   RotationSpeed: 90
 --- !u!114 &953896890
 MonoBehaviour:
@@ -1187,6 +1185,10 @@ MonoBehaviour:
   - {fileID: 446959231}
   - {fileID: 1128434845}
   - {fileID: 411061429}
+  Spawn: 0
+  HasSpawned: 0
+  Animate: 0
+  SpeedAnimationEnd: {x: 0, y: 0, z: 4}
 --- !u!1 &1128434843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!23 &1128434846
 MeshRenderer:
@@ -1456,6 +1458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerDissolveAnimator: {fileID: 1251804357}
   Rigidbody: {fileID: 1251804356}
+  EnvironmentController: {fileID: 953896890}
+  HasSpawned: 0
 --- !u!1 &1455309568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1.5
+  AnimationSpeed: 1
   IsAnimating: 0
 --- !u!1 &1492661250
 GameObject:
