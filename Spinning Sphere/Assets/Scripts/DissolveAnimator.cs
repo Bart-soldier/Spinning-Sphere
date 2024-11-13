@@ -3,7 +3,7 @@ using UnityEngine;
 public class DissolveAnimator : MonoBehaviour
 {
     public bool StartAnimation = false;
-    public float AnimationSpeed = 1.5f;
+    public float AnimationSpeed = 1.0f;
     
     public bool IsAnimating = false;
 
