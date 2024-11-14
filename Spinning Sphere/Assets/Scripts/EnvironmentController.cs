@@ -19,7 +19,15 @@ public class EnvironmentController : MonoBehaviour
     private bool SpeedAnimationFinished = true;
     private bool Animating = false;
 
-    private void Update()
+    void Start()
+    {
+        foreach (var animator in DissolveAnimators)
+        {
+            animator.GetComponentInParent<Renderer>().material.SetFloat("_Animation", 1.0f);
+        }
+    }
+
+    void Update()
     {
         Spawn();
 

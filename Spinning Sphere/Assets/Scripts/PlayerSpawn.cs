@@ -22,30 +22,31 @@ public class PlayerSpawn : MonoBehaviour
 
     void Update()
     {
-        if(HasSpawned)
+        Spawn();
+
+    }
+
+    private void Spawn()
+    {
+        if (HasSpawned)
         {
             return;
         }
 
-        if(!Spawning && EnvironmentController.HasSpawned)
+        if (!Spawning && EnvironmentController.HasSpawned)
         {
-            SpawnPlayer();
+            Spawning = true;
+
+            PlayerDissolveAnimator.StartAnimation = true;
+            PlayerDissolveAnimator.IsAnimating = true;
         }
 
-        if(Spawning && !PlayerDissolveAnimator.IsAnimating)
+        if (Spawning && !PlayerDissolveAnimator.IsAnimating)
         {
             Spawning = false;
             HasSpawned = true;
             Rigidbody.useGravity = true;
             EnvironmentController.ToggleAnimation = true;
         }
-    }
-
-    private void SpawnPlayer()
-    {
-        Spawning = true;
-
-        PlayerDissolveAnimator.StartAnimation = true;
-        PlayerDissolveAnimator.IsAnimating = true;
     }
 }
