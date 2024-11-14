@@ -29,7 +29,8 @@ public class DissolveAnimator : MonoBehaviour
         if(IsAnimating)
         {
             float animation = this.GetComponent<Renderer>().material.GetFloat("_Animation");
-            animation = Appearing ? animation - AnimationSpeed * Time.deltaTime : animation + AnimationSpeed * Time.deltaTime;
+            animation = Appearing ? animation - AnimationSpeed * Time.deltaTime :
+                                    animation + AnimationSpeed * Time.deltaTime;
 
             IsAnimating = animation > 0.0f && animation < 1.0f;
 

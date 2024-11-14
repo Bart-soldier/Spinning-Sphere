@@ -17,7 +17,7 @@ public class PlayerSpawn : MonoBehaviour
         Rigidbody.useGravity = false;
         this.GetComponent<Renderer>().material.SetFloat("_Animation", 1.0f);
 
-        EnvironmentController.Spawn = true;
+        EnvironmentController.ToggleSpawn = true;
     }
 
     void Update()
@@ -37,7 +37,7 @@ public class PlayerSpawn : MonoBehaviour
             Spawning = false;
             HasSpawned = true;
             Rigidbody.useGravity = true;
-            EnvironmentController.Animate = true;
+            EnvironmentController.ToggleAnimation = true;
         }
     }
 
