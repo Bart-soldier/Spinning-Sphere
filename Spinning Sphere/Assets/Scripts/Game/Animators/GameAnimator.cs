@@ -9,7 +9,9 @@ public class GameAnimator : MonoBehaviour
     public TextureOffsetAnimator EnvironmentTextureOffsetAnimator;
 
     public bool Spawn = false;
-    private bool Spawning = false;
+    public bool Despawn = false;
+
+    private bool Animating = false;
 
     void Start()
     {
@@ -21,9 +23,10 @@ public class GameAnimator : MonoBehaviour
     void Update()
     {
         SpawnAnimation();
+        DespawnAnimation();
     }
 
-    private void StartSpawnAnimation()
+    public void StartSpawnAnimation()
     {
         Spawn = true;
         EnvironmentDissolveAnimator.ToggleDissolve = true;
@@ -36,18 +39,28 @@ public class GameAnimator : MonoBehaviour
             return;
         }
 
-        if(!Spawning && EnvironmentDissolveAnimator.Visible)
+        if(!Animating && EnvironmentDissolveAnimator.Visible)
         {
             PlayerDissolveAnimator.ToggleDissolve = true;
-            Spawning = true;
+            Animating = true;
         }
 
-        if(Spawning && PlayerDissolveAnimator.Visible)
+        if(Animating && PlayerDissolveAnimator.Visible)
         {
-            Spawning = false;
             Spawn = false;
+            Animating = false;
             PlayerRigidbody.useGravity = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+        }
+    }
+
+    private void DespawnAnimation()
+    {
+        if (Despawn)
+        {
+            PlayerDissolveAnimator.ToggleDissolve = true;
+            EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+            Despawn = false;
         }
     }
 }

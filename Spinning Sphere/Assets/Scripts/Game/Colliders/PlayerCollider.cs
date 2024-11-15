@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public RotationController RotationController;
+    public GameAnimator GameAnimator;
+
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision");
+        if(other.tag.Equals("Obstacle"))
+        {
+            RotationController.enabled = false;
+            GameAnimator.Despawn = true;
+        }
     }
 }
