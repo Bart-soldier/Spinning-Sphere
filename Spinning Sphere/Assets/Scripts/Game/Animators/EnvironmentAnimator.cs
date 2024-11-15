@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnvironmentController : MonoBehaviour
+public class EnvironmentAnimator : MonoBehaviour
 {
     public List<DissolveAnimator> DissolveAnimators;
     public List<MovementAnimator> MovementAnimators;

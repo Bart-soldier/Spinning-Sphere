@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpawn : MonoBehaviour
+public class PlayerAnimator : MonoBehaviour
 {
     public DissolveAnimator PlayerDissolveAnimator;
     public Rigidbody Rigidbody;
 
-    public EnvironmentController EnvironmentController;
+    public EnvironmentAnimator EnvironmentAnimator;
 
     public bool HasSpawned = false;
     
@@ -17,7 +17,7 @@ public class PlayerSpawn : MonoBehaviour
         Rigidbody.useGravity = false;
         this.GetComponent<Renderer>().material.SetFloat("_Animation", 1.0f);
 
-        EnvironmentController.ToggleSpawn = true;
+        EnvironmentAnimator.ToggleSpawn = true;
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class PlayerSpawn : MonoBehaviour
             return;
         }
 
-        if (!Spawning && EnvironmentController.HasSpawned)
+        if (!Spawning && EnvironmentAnimator.HasSpawned)
         {
             Spawning = true;
 
@@ -46,7 +46,7 @@ public class PlayerSpawn : MonoBehaviour
             Spawning = false;
             HasSpawned = true;
             Rigidbody.useGravity = true;
-            EnvironmentController.ToggleAnimation = true;
+            EnvironmentAnimator.ToggleAnimation = true;
         }
     }
 }
