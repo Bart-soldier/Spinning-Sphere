@@ -349,11 +349,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 368473333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!23 &368473336
 MeshRenderer:
@@ -417,11 +417,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 368473333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1 &382130983
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,11 +569,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 382130983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!114 &382130990
 MonoBehaviour:
@@ -584,11 +584,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 382130983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1 &411061427
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,11 +633,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 411061427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!23 &411061430
 MeshRenderer:
@@ -701,11 +701,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 411061427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1 &446959229
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,11 +750,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 446959229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!23 &446959232
 MeshRenderer:
@@ -818,18 +818,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 446959229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1001 &584501456
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1204259537}
     m_Modifications:
     - target: {fileID: 1086481712521562455, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_Name
@@ -837,15 +837,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.71
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.22
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -874,6 +874,10 @@ PrefabInstance:
     - target: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665784148224394489, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
+      propertyPath: Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1027,11 +1031,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 600263059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!114 &600263066
 MonoBehaviour:
@@ -1042,11 +1046,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 600263059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
+--- !u!1 &601349608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601349610}
+  - component: {fileID: 601349609}
+  m_Layer: 0
+  m_Name: Game Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &601349609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601349608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97e780b973594804aaee61ffe369fddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerDissolveAnimator: {fileID: 1251804361}
+  PlayerRigidbody: {fileID: 1251804356}
+  EnvironmentDissolveAnimator: {fileID: 953896891}
+  EnvironmentTextureOffsetAnimator: {fileID: 953896890}
+  ToggleSpawn: 0
+--- !u!4 &601349610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601349608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &660278738 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1468459845631035796, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
+  m_PrefabInstance: {fileID: 584501456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,11 +1301,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 880416919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!114 &880416926
 MonoBehaviour:
@@ -1258,11 +1316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 880416919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1 &953896887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,6 +1331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 953896888}
   - component: {fileID: 953896889}
+  - component: {fileID: 953896891}
   - component: {fileID: 953896890}
   m_Layer: 0
   m_Name: Environment
@@ -1296,6 +1355,7 @@ Transform:
   m_Children:
   - {fileID: 1492661251}
   - {fileID: 252266285}
+  - {fileID: 1204259537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &953896889
@@ -1320,19 +1380,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 953896887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b8bdbb5e5c2c048a290091a5d81e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e4c2f1a9055ff34685e219854506c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DissolveAnimators:
-  - {fileID: 368473335}
-  - {fileID: 1128434845}
-  - {fileID: 411061429}
-  - {fileID: 446959231}
-  - {fileID: 880416925}
-  - {fileID: 600263065}
-  - {fileID: 382130989}
-  - {fileID: 1455309574}
-  MovementAnimators:
+  TextureOffsetAnimations:
   - {fileID: 368473338}
   - {fileID: 1128434848}
   - {fileID: 411061432}
@@ -1341,11 +1392,32 @@ MonoBehaviour:
   - {fileID: 600263066}
   - {fileID: 382130990}
   - {fileID: 1455309575}
-  ToggleSpawn: 0
-  HasSpawned: 0
   ToggleAnimation: 0
-  SpeedAnimationTargetZ: 6
+  AnimationTargetZ: 6
   AnimationSpeed: 6
+--- !u!114 &953896891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953896887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DissolveAnimations:
+  - {fileID: 368473335}
+  - {fileID: 1128434845}
+  - {fileID: 411061429}
+  - {fileID: 446959231}
+  - {fileID: 880416925}
+  - {fileID: 600263065}
+  - {fileID: 382130989}
+  - {fileID: 1455309574}
+  Visible: 0
+  ToggleDissolve: 0
 --- !u!1 &1128434843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,11 +1462,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128434843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!23 &1128434846
 MeshRenderer:
@@ -1458,11 +1530,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128434843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
+--- !u!1 &1204259536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204259537}
+  m_Layer: 0
+  m_Name: Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204259537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204259536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 660278738}
+  m_Father: {fileID: 953896888}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251804351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,8 +1580,9 @@ GameObject:
   - component: {fileID: 1251804353}
   - component: {fileID: 1251804352}
   - component: {fileID: 1251804356}
-  - component: {fileID: 1251804358}
-  - component: {fileID: 1251804357}
+  - component: {fileID: 1251804360}
+  - component: {fileID: 1251804361}
+  - component: {fileID: 1251804359}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1601,7 +1706,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1251804357
+--- !u!114 &1251804359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251804351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e58793f53f6a04fbc9afea5aafd6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1251804360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251804351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartAnimation: 0
+  Speed: 1
+  IsAnimating: 0
+--- !u!114 &1251804361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1613,25 +1745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartAnimation: 0
-  AnimationSpeed: 1.5
-  IsAnimating: 0
---- !u!114 &1251804358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251804351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa380717d958b041b49f6f2a120766e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerDissolveAnimator: {fileID: 1251804357}
-  Rigidbody: {fileID: 1251804356}
-  EnvironmentAnimator: {fileID: 0}
-  HasSpawned: 0
+  DissolveAnimations:
+  - {fileID: 1251804360}
+  Visible: 0
+  ToggleDissolve: 0
 --- !u!1 &1455309568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,11 +1896,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455309568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartAnimation: 0
-  AnimationSpeed: 1
+  Speed: 1
   IsAnimating: 0
 --- !u!114 &1455309575
 MonoBehaviour:
@@ -1794,11 +1911,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1455309568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6283e14e712d51d4f8b5251f6043d8f4, type: 3}
+  m_Script: {fileID: 11500000, guid: f75e644dbf7a40040a2bf1707c484c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  AnimationSpeed: 1
+  Enable: 0
+  Speed: 1
 --- !u!1 &1492661250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,4 +1959,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 953896888}
   - {fileID: 1251804355}
-  - {fileID: 584501456}
+  - {fileID: 601349610}

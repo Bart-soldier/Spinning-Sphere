@@ -1,40 +1,47 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DissolveAnimator : MonoBehaviour
 {
-    public bool StartAnimation = false;
-    public float AnimationSpeed = 1.0f;
-    
-    public bool IsAnimating = false;
+    public List<DissolveAnimation> DissolveAnimations;
 
-    private bool Appearing = false;
+    public bool Visible = false;
+
+    public bool ToggleDissolve = false;
+    private bool Dissolving = false;
+
+    void Start()
+    {
+        foreach (var animator in DissolveAnimations)
+        {
+            animator.GetComponentInParent<Renderer>().material.SetFloat("_Animation", 1.0f);
+        }
+    }
 
     void Update()
     {
-        if(StartAnimation)
-        {
-            if(IsAnimating)
-            {
-                Appearing = !Appearing;
-            }
-            else
-            {
-                Appearing = this.GetComponent<Renderer>().material.GetFloat("_Animation") >= 0.5f;
-            }
+        Dissolve();
+    }
 
-            IsAnimating = true;
-            StartAnimation = false;
+    private void Dissolve()
+    {
+        if (ToggleDissolve)
+        {
+            Dissolving = true;
+            ToggleDissolve = false;
+
+            foreach (var animator in DissolveAnimations)
+            {
+                animator.StartAnimation = true;
+                animator.IsAnimating = true;
+            }
         }
 
-        if(IsAnimating)
+        if (Dissolving && DissolveAnimations.FirstOrDefault()?.IsAnimating == false)
         {
-            float animation = this.GetComponent<Renderer>().material.GetFloat("_Animation");
-            animation = Appearing ? animation - AnimationSpeed * Time.deltaTime :
-                                    animation + AnimationSpeed * Time.deltaTime;
-
-            IsAnimating = animation > 0.0f && animation < 1.0f;
-
-            this.GetComponent<Renderer>().material.SetFloat("_Animation", animation);
+            Dissolving = false;
+            Visible = !Visible;
         }
     }
 }
