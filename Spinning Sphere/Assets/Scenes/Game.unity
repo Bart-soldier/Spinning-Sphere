@@ -1560,7 +1560,6 @@ MonoBehaviour:
   RotationController: {fileID: 26458764}
   Spawn: 0
   Despawn: 0
-  Animating: 0
 --- !u!4 &601349610
 Transform:
   m_ObjectHideFlags: 0
