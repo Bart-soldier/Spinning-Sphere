@@ -7,7 +7,7 @@ public class PlayerCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag.Equals("Obstacle"))
+        if (other.tag.Equals("Obstacle"))
         {
             RotationController.enabled = false;
             GameAnimator.Despawn = true;
