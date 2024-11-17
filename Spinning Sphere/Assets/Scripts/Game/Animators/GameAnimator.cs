@@ -8,28 +8,33 @@ public class GameAnimator : MonoBehaviour
     public DissolveAnimator EnvironmentDissolveAnimator;
     public TextureOffsetAnimator EnvironmentTextureOffsetAnimator;
 
+    public RotationController RotationController;
+
     public bool Spawn = false;
     public bool Despawn = false;
 
-    private bool Animating = false;
-
-    void Start()
-    {
-        PlayerRigidbody.useGravity = false;
-
-        StartSpawnAnimation();
-    }
+    private bool Spawning = false;
+    private bool Despawning = false;
 
     void Update()
     {
-        SpawnAnimation();
         DespawnAnimation();
+        SpawnAnimation();
     }
 
-    public void StartSpawnAnimation()
+    public void FirstSpawn()
     {
-        Spawn = true;
         EnvironmentDissolveAnimator.ToggleDissolve = true;
+        Respawn();
+    }
+
+    public void Respawn()
+    {
+        PlayerRigidbody.gameObject.transform.position = Vector3.zero;
+
+        PlayerRigidbody.useGravity = false;
+
+        Spawn = true;
     }
 
     private void SpawnAnimation()
@@ -39,28 +44,47 @@ public class GameAnimator : MonoBehaviour
             return;
         }
 
-        if(!Animating && EnvironmentDissolveAnimator.Visible)
+        if(!Spawning && EnvironmentDissolveAnimator.Visible)
         {
+            Spawning = true;
+
             PlayerDissolveAnimator.ToggleDissolve = true;
-            Animating = true;
         }
 
-        if(Animating && PlayerDissolveAnimator.Visible)
+        if(Spawning && PlayerDissolveAnimator.Visible)
         {
-            Spawn = false;
-            Animating = false;
-            PlayerRigidbody.useGravity = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+
+            PlayerRigidbody.useGravity = true;
+            RotationController.enabled = true;
+
+            Spawn = false;
+            Spawning = false;
         }
     }
 
     private void DespawnAnimation()
     {
-        if (Despawn)
+        if(!Despawn)
         {
+            return;
+        }
+
+        if(!Despawning && PlayerDissolveAnimator.Visible)
+        {
+            Despawning = true;
+
             PlayerDissolveAnimator.ToggleDissolve = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+
+            PlayerRigidbody.useGravity = false;
+            RotationController.enabled = false;
+        }
+
+        if (Despawning && !PlayerDissolveAnimator.Visible)
+        {
             Despawn = false;
+            Despawning = false;
         }
     }
 }
