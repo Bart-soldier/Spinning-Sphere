@@ -38,7 +38,7 @@ public class DissolveAnimator : MonoBehaviour
             }
         }
 
-        if (Dissolving && DissolveAnimations.FirstOrDefault()?.IsAnimating == false)
+        if (Dissolving && DissolveAnimations.FirstOrDefault().IsAnimating == false)
         {
             Dissolving = false;
             Visible = !Visible;

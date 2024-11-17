@@ -18,8 +18,8 @@ public class GameAnimator : MonoBehaviour
 
     void Update()
     {
-        DespawnAnimation();
         SpawnAnimation();
+        DespawnAnimation();
     }
 
     public void FirstSpawn()
@@ -30,7 +30,10 @@ public class GameAnimator : MonoBehaviour
 
     public void Respawn()
     {
-        PlayerRigidbody.gameObject.transform.position = Vector3.zero;
+        RotationController.gameObject.transform.localRotation = Quaternion.identity;
+
+        PlayerRigidbody.gameObject.transform.localPosition = Vector3.zero;
+        PlayerRigidbody.linearVelocity = Vector3.zero;
 
         PlayerRigidbody.useGravity = false;
 

@@ -31,7 +31,6 @@ public class GameFlow : MonoBehaviour
 
         if (IsGameEnded && !GameAnimator.Despawn)
         {
-            Time.timeScale = 0.0f;
             EndMenuUI.SetActive(true);
         }
     }
@@ -64,7 +63,6 @@ public class GameFlow : MonoBehaviour
     public void Restart()
     {
         IsGameEnded = false;
-        Time.timeScale = 1.0f;
         EndMenuUI.SetActive(false);
 
         GameAnimator.Respawn();
