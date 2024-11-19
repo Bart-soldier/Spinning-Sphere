@@ -8,6 +8,8 @@ public class GameAnimator : MonoBehaviour
     public DissolveAnimator EnvironmentDissolveAnimator;
     public TextureOffsetAnimator EnvironmentTextureOffsetAnimator;
 
+    public DissolveChildrenAnimator ObstaclesDissolveAnimator;
+
     public RotationController RotationController;
 
     public bool Spawn = false;
@@ -79,6 +81,7 @@ public class GameAnimator : MonoBehaviour
 
             PlayerDissolveAnimator.ToggleDissolve = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+            ObstaclesDissolveAnimator.ToggleDissolve = true;
 
             PlayerRigidbody.useGravity = false;
             RotationController.enabled = false;
