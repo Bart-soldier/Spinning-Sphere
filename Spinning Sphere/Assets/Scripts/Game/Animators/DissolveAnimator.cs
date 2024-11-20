@@ -33,7 +33,7 @@ public class DissolveAnimator : MonoBehaviour
 
             foreach (var animator in DissolveAnimations)
             {
-                animator.StartAnimation = true;
+                animator.Animate = true;
                 animator.IsAnimating = true;
             }
         }

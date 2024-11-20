@@ -1,26 +1,35 @@
 using UnityEngine;
 
+#nullable enable
+
 public class DissolveAnimation : MonoBehaviour
 {
-    public bool StartAnimation = false;
+    public bool Animate = false;
     public float Speed = 1.0f;
     
-    public bool Visible { get; private set; }
-    //public bool IsAnimating { get; private set; } = false;
+    public bool Visible {
+        get => Material.GetFloat("_Animation") < 1.0f;
+    }
     public bool IsAnimating = false;
 
-    private Material Material;
-    private bool Appearing = false;
-
-    void Start()
+    private Material? material = null;
+    public Material Material
     {
-        Material = GetComponentInParent<Renderer>().material;
-        Visible = Material.GetFloat("_Animation") <= 1.0f ? true : false;
+        get
+        {
+            if(material == null)
+            {
+                material = GetComponent<Renderer>().material;
+            }
+
+            return material;
+        }
     }
+    private bool Appearing = false;
 
     void Update()
     {
-        if(StartAnimation)
+        if (Animate)
         {
             if(IsAnimating)
             {
@@ -28,11 +37,11 @@ public class DissolveAnimation : MonoBehaviour
             }
             else
             {
-                Appearing = Material.GetFloat("_Animation") >= 0.5f;
+                Appearing = !Visible;
             }
 
             IsAnimating = true;
-            StartAnimation = false;
+            Animate = false;
         }
 
         if(IsAnimating)
@@ -43,12 +52,35 @@ public class DissolveAnimation : MonoBehaviour
 
             IsAnimating = animation > 0.0f && animation < 1.0f;
 
-            if(!IsAnimating)
-            {
-                Visible = Appearing;
-            }
-
             Material.SetFloat("_Animation", animation);
+        }
+    }
+
+    public void DissolveIn()
+    {
+        Material.SetFloat("_Animation", 1.0f);
+        Animate = true;
+    }
+
+    public void DissolveOut()
+    {
+        Material.SetFloat("_Animation", 0.0f);
+        Animate = true;
+    }
+
+    public void DissolveInIfNotVisible()
+    {
+        if(!Visible)
+        {
+            Animate = true;
+        }
+    }
+
+    public void DissolveOutIfVisible()
+    {
+        if(Visible)
+        {
+            Animate = true;
         }
     }
 }
