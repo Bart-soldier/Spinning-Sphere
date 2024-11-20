@@ -40,7 +40,7 @@ public class TextureOffsetAnimator : MonoBehaviour
             {
                 foreach (var animator in TextureOffsetAnimations)
                 {
-                    animator.Enable = Animating;
+                    animator.Animate = Animating;
                 }
             }
         }

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartAnimation: 0
+  Animate: 0
   Speed: 1
   IsAnimating: 0
 --- !u!114 &7665784148224394489

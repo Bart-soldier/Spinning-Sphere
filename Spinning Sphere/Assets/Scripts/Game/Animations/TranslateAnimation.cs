@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class MovementAnimation : MonoBehaviour
+public class TranslateAnimation : MonoBehaviour
 {
-    public float Speed = 10.0f;
+    public float Speed = 60.0f;
 
     void Update()
     {

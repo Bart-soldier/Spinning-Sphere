@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstaclePrefab: {fileID: 1086481712521562455, guid: 591efb6214fd2ef4fb5a4995150bbb42, type: 3}
-  SpawnInterval: 1
+  SpawnInterval: 1.5
 --- !u!1 &1251804351
 GameObject:
   m_ObjectHideFlags: 0
