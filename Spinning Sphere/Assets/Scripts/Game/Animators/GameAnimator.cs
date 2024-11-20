@@ -8,7 +8,7 @@ public class GameAnimator : MonoBehaviour
     public DissolveAnimator EnvironmentDissolveAnimator;
     public TextureOffsetAnimator EnvironmentTextureOffsetAnimator;
 
-    public DissolveChildrenAnimator ObstaclesDissolveAnimator;
+    public GameObject ObstaclesParent;
 
     public RotationController RotationController;
 
@@ -81,7 +81,7 @@ public class GameAnimator : MonoBehaviour
 
             PlayerDissolveAnimator.ToggleDissolve = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
-            ObstaclesDissolveAnimator.ToggleDissolve = true;
+            DespawnAllObstacles();
 
             PlayerRigidbody.useGravity = false;
             RotationController.enabled = false;
@@ -91,6 +91,17 @@ public class GameAnimator : MonoBehaviour
         {
             Despawn = false;
             Despawning = false;
+        }
+    }
+
+    private void DespawnAllObstacles()
+    {
+        foreach(var dissolveAnimation in ObstaclesParent.GetComponentsInChildren<DissolveAnimation>())
+        {
+            if(dissolveAnimation.Visible)
+            {
+                dissolveAnimation.StartAnimation = true;
+            }
         }
     }
 }

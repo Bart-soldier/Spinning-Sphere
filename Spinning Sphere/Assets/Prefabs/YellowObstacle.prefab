@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1867556670288003710}
   - component: {fileID: 446788596862499175}
   - component: {fileID: 6605702013875662210}
+  - component: {fileID: 7898791490364595888}
   - component: {fileID: 7665784148224394489}
   m_Layer: 0
   m_Name: YellowObstacle
@@ -109,7 +110,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7665784148224394489
+--- !u!114 &7898791490364595888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +118,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086481712521562455}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartAnimation: 0
+  Speed: 1
+  IsAnimating: 0
+--- !u!114 &7665784148224394489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086481712521562455}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe78fc5d5373a7442a932d6a622903d6, type: 3}
   m_Name: 

@@ -5,9 +5,18 @@ public class DissolveAnimation : MonoBehaviour
     public bool StartAnimation = false;
     public float Speed = 1.0f;
     
+    public bool Visible { get; private set; }
+    //public bool IsAnimating { get; private set; } = false;
     public bool IsAnimating = false;
 
+    private Material Material;
     private bool Appearing = false;
+
+    void Start()
+    {
+        Material = GetComponentInParent<Renderer>().material;
+        Visible = Material.GetFloat("_Animation") <= 1.0f ? true : false;
+    }
 
     void Update()
     {
@@ -19,7 +28,7 @@ public class DissolveAnimation : MonoBehaviour
             }
             else
             {
-                Appearing = this.GetComponent<Renderer>().material.GetFloat("_Animation") >= 0.5f;
+                Appearing = Material.GetFloat("_Animation") >= 0.5f;
             }
 
             IsAnimating = true;
@@ -28,13 +37,18 @@ public class DissolveAnimation : MonoBehaviour
 
         if(IsAnimating)
         {
-            float animation = this.GetComponent<Renderer>().material.GetFloat("_Animation");
+            float animation = Material.GetFloat("_Animation");
             animation = Appearing ? animation - Speed * Time.deltaTime :
                                     animation + Speed * Time.deltaTime;
 
             IsAnimating = animation > 0.0f && animation < 1.0f;
 
-            this.GetComponent<Renderer>().material.SetFloat("_Animation", animation);
+            if(!IsAnimating)
+            {
+                Visible = Appearing;
+            }
+
+            Material.SetFloat("_Animation", animation);
         }
     }
 }
