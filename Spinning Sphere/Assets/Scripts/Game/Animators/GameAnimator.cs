@@ -34,7 +34,6 @@ public class GameAnimator : MonoBehaviour
     {
         RotationController.gameObject.transform.localRotation = Quaternion.identity;
         PlayerRigidbody.gameObject.transform.localPosition = Vector3.zero;
-        PlayerRigidbody.linearVelocity = Vector3.zero;
         PlayerRigidbody.useGravity = false;
         Spawn = true;
     }
@@ -80,6 +79,7 @@ public class GameAnimator : MonoBehaviour
             PlayerDissolveAnimator.ToggleDissolve = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
 
+            PlayerRigidbody.angularVelocity = Vector3.zero;
             PlayerRigidbody.linearVelocity = Vector3.zero;
             PlayerRigidbody.useGravity = false;
             RotationController.enabled = false;
