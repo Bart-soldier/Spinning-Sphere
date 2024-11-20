@@ -30,7 +30,7 @@ public class ObstacleHandler : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(ObstaclePrefab == null || !Active)
+        if(ObstaclePrefab == null || !active)
         {
             return;
         }
@@ -75,14 +75,17 @@ public class ObstacleHandler : MonoBehaviour
 
         obstacle.SetActive(true);
         obstacle.transform.localPosition = spawnPosition;
+        obstacle.GetComponent<TranslateAnimation>().Animate = true;
         obstacle.GetComponent<DissolveAnimation>().DissolveIn();
     }
 
     private void DissolveAllObstacles()
     {
-        foreach (var dissolveAnimation in GetComponentsInChildren<DissolveAnimation>())
+        for (int i = 0; i < transform.childCount; i++)
         {
-            dissolveAnimation.DissolveOutIfVisible();
+            GameObject obstacle = transform.GetChild(i).gameObject;
+            obstacle.GetComponent<TranslateAnimation>().Animate = false;
+            obstacle.GetComponent<DissolveAnimation>().DissolveOutIfVisible();
         }
     }
 
