@@ -10,9 +10,13 @@ public class RotationController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0.0f, 0.0f, RotationSpeed * Time.deltaTime));
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(new Vector3(0.0f, 0.0f, -RotationSpeed * Time.deltaTime));
+        }
+        else
+        {
+            transform.localRotation = Input.gyro.attitude;
         }
     }
 }
