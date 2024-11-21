@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameFlow : MonoBehaviour
 {
@@ -10,6 +11,26 @@ public class GameFlow : MonoBehaviour
 
     public GameAnimator GameAnimator;
 
+    public void OnEscape(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            Debug.Log("Escape");
+
+            if (!IsGameEnded)
+            {
+                if (IsGamePaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
+            }
+        }
+    }
+
     private void Start()
     {
         GameAnimator.FirstSpawn();
@@ -17,18 +38,6 @@ public class GameFlow : MonoBehaviour
 
     private void Update()
     {
-        if (!IsGameEnded && Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (IsGamePaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-
         if (IsGameEnded && !GameAnimator.Despawn)
         {
             EndMenuUI.SetActive(true);
