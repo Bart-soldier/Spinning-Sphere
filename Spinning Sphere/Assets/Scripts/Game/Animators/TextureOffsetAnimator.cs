@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class TextureOffsetAnimator : MonoBehaviour
 {
+    public bool ToggleAnimation = false;
     public List<TextureOffsetAnimation> TextureOffsetAnimations;
 
-    public bool ToggleAnimation = false;
     public float AnimationTargetZ = 6.0f;
     public float AnimationSpeed = 6.0f;
+
     private bool AnimationFinished = true;
     private bool Animating = false;
 

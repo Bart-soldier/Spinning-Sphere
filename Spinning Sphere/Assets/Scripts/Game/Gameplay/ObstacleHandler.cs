@@ -25,8 +25,14 @@ public class ObstacleHandler : MonoBehaviour
             }
         }
     }
-    public float SpawnInterval = 1.5f; // In seconds
+
+    public float SpawnInterval = 2.0f; // In seconds
+    public int ObstacleSpawnCount = 5;
+
     private float LastSpawn = 0.0f;
+    private readonly float[] SpawnX = { -3.9f,  -1.95f , 0.0f, 1.95f , 3.9f };
+    private readonly float[] SpawnY = { -1.95f, -0.975f, 0.0f, 0.975f, 1.95f};
+    private bool[,] OccupiedSpawns = new bool[5, 5];
 
     void FixedUpdate()
     {
@@ -38,19 +44,35 @@ public class ObstacleHandler : MonoBehaviour
         SpawnObstacle();
     }
 
+    private static void FillArray(bool[,] array, bool value)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array[i, j] = value;
+            }
+        }
+    }
+
     private void SpawnObstacle()
     {
         if (Time.time - LastSpawn >= SpawnInterval)
         {
-            GameObject? obstacle = GetDeactivatedObstacle();
+            FillArray(OccupiedSpawns, false);
 
-            if (obstacle == null)
+            for (int i = 0; i < ObstacleSpawnCount; i++)
             {
-                obstacle = Instantiate(ObstaclePrefab!, transform);
-            }
+                GameObject? obstacle = GetDeactivatedObstacle();
 
-            InitializeSpawn(obstacle);
-            LastSpawn = Time.time;
+                if (obstacle == null)
+                {
+                    obstacle = Instantiate(ObstaclePrefab!, transform);
+                }
+
+                InitializeSpawn(obstacle);
+                LastSpawn = Time.time;
+            }
         }
     }
 
@@ -71,7 +93,20 @@ public class ObstacleHandler : MonoBehaviour
 
     private void InitializeSpawn(GameObject obstacle)
     {
-        Vector3 spawnPosition = new Vector3(-3.9f, -1.95f, 0.0f);
+        int randomX = 0;
+        int randomY = 0;
+        bool occupied = false;
+
+        do
+        {
+            randomX = Random.Range(0, 4);
+            randomY = Random.Range(0, 4);
+            occupied = OccupiedSpawns[randomX, randomY];
+        }
+        while (occupied);
+
+        OccupiedSpawns[randomX, randomY] = true;
+        Vector3 spawnPosition = new Vector3(SpawnX[randomX], SpawnY[randomY], 0.0f);
 
         obstacle.SetActive(true);
         obstacle.transform.localPosition = spawnPosition;

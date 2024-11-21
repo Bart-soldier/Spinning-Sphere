@@ -26,7 +26,7 @@ public class GameAnimator : MonoBehaviour
 
     public void FirstSpawn()
     {
-        EnvironmentDissolveAnimator.ToggleDissolve = true;
+        EnvironmentDissolveAnimator.ToggleAnimation = true;
         Respawn();
     }
 
@@ -49,7 +49,7 @@ public class GameAnimator : MonoBehaviour
         {
             Spawning = true;
 
-            PlayerDissolveAnimator.ToggleDissolve = true;
+            PlayerDissolveAnimator.ToggleAnimation = true;
         }
 
         if(Spawning && PlayerDissolveAnimator.Visible)
@@ -76,7 +76,7 @@ public class GameAnimator : MonoBehaviour
         {
             Despawning = true;
 
-            PlayerDissolveAnimator.ToggleDissolve = true;
+            PlayerDissolveAnimator.ToggleAnimation = true;
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
 
             PlayerRigidbody.angularVelocity = Vector3.zero;

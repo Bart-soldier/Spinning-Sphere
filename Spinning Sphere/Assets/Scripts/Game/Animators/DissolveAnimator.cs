@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DissolveAnimator : MonoBehaviour
 {
+    public bool ToggleAnimation = false;
     public List<DissolveAnimation> DissolveAnimations;
 
     public bool Visible = false;
 
-    public bool ToggleDissolve = false;
-    private bool Dissolving = false;
+    private bool Animating = false;
 
     void Start()
     {
@@ -26,10 +26,10 @@ public class DissolveAnimator : MonoBehaviour
 
     private void Dissolve()
     {
-        if (ToggleDissolve)
+        if (ToggleAnimation)
         {
-            Dissolving = true;
-            ToggleDissolve = false;
+            Animating = true;
+            ToggleAnimation = false;
 
             foreach (var animator in DissolveAnimations)
             {
@@ -38,9 +38,9 @@ public class DissolveAnimator : MonoBehaviour
             }
         }
 
-        if (Dissolving && DissolveAnimations.FirstOrDefault().IsAnimating == false)
+        if (Animating && DissolveAnimations.FirstOrDefault().IsAnimating == false)
         {
-            Dissolving = false;
+            Animating = false;
             Visible = !Visible;
         }
     }
