@@ -271,53 +271,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12660904}
   m_CullTransparentMesh: 1
---- !u!1 &26458762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 26458763}
-  - component: {fileID: 26458764}
-  m_Layer: 0
-  m_Name: Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &26458763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26458762}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 330585546}
-  - {fileID: 953896888}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &26458764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26458762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71dd731ecf194af4a85b486b30f7baf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: 90
 --- !u!1 &93586578
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 26458763}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -1085,7 +1038,7 @@ MonoBehaviour:
   EnvironmentDissolveAnimator: {fileID: 953896890}
   EnvironmentTextureOffsetAnimator: {fileID: 953896889}
   ObstacleHandler: {fileID: 1204259538}
-  RotationController: {fileID: 26458764}
+  PlayerController: {fileID: 1251804363}
   Spawn: 0
   Despawn: 0
 --- !u!4 &601349610
@@ -1876,7 +1829,7 @@ Transform:
   - {fileID: 1398009703}
   - {fileID: 1204259537}
   - {fileID: 1384967304}
-  m_Father: {fileID: 26458763}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &953896889
 MonoBehaviour:
@@ -2290,6 +2243,7 @@ GameObject:
   - component: {fileID: 1251804360}
   - component: {fileID: 1251804361}
   - component: {fileID: 1251804359}
+  - component: {fileID: 1251804363}
   - component: {fileID: 1251804362}
   m_Layer: 0
   m_Name: Player
@@ -2317,7 +2271,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.45
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1251804353
 MeshRenderer:
@@ -2485,8 +2439,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 26458764}
-        m_TargetAssemblyTypeName: RotationController, Assembly-CSharp
+      - m_Target: {fileID: 1251804363}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMovement
         m_Mode: 0
         m_Arguments:
@@ -2561,7 +2515,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 26458764}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotationController, Assembly-CSharp
         m_MethodName: OnGyroscope
         m_Mode: 0
@@ -2580,6 +2534,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1251804363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251804351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37273d7089ef4b4428d473311fcf9874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 2
 --- !u!1001 &1310586114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4308,6 +4275,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 832575519}
   - {fileID: 601349610}
-  - {fileID: 26458763}
+  - {fileID: 330585546}
+  - {fileID: 953896888}
   - {fileID: 1251804355}
   - {fileID: 539643658}

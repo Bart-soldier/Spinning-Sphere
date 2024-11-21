@@ -10,7 +10,7 @@ public class GameAnimator : MonoBehaviour
 
     public ObstacleHandler ObstacleHandler;
 
-    public RotationController RotationController;
+    public PlayerController PlayerController;
 
     public bool Spawn = false;
     public bool Despawn = false;
@@ -32,7 +32,7 @@ public class GameAnimator : MonoBehaviour
 
     public void Respawn()
     {
-        RotationController.gameObject.transform.localRotation = Quaternion.identity;
+        PlayerController.gameObject.transform.localRotation = Quaternion.identity;
         PlayerRigidbody.gameObject.transform.localPosition = Vector3.zero;
         PlayerRigidbody.useGravity = false;
         Spawn = true;
@@ -57,7 +57,7 @@ public class GameAnimator : MonoBehaviour
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
 
             PlayerRigidbody.useGravity = true;
-            RotationController.enabled = true;
+            PlayerController.enabled = true;
             ObstacleHandler.Active = true;
 
             Spawn = false;
@@ -82,7 +82,7 @@ public class GameAnimator : MonoBehaviour
             PlayerRigidbody.angularVelocity = Vector3.zero;
             PlayerRigidbody.linearVelocity = Vector3.zero;
             PlayerRigidbody.useGravity = false;
-            RotationController.enabled = false;
+            PlayerController.enabled = false;
             ObstacleHandler.Active = false;
         }
 
