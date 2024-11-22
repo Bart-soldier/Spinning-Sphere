@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameAnimator : MonoBehaviour
 {
+    public UnityEvent SpawnCompleted = new UnityEvent();
+    public UnityEvent DespawnCompleted = new UnityEvent();
+
     public DissolveAnimator PlayerDissolveAnimator;
-    public Rigidbody PlayerRigidbody;
 
     public DissolveAnimator EnvironmentDissolveAnimator;
     public TextureOffsetAnimator EnvironmentTextureOffsetAnimator;
@@ -12,84 +16,64 @@ public class GameAnimator : MonoBehaviour
 
     public PlayerController PlayerController;
 
-    public bool Spawn = false;
-    public bool Despawn = false;
-
     private bool Spawning = false;
     private bool Despawning = false;
 
-    void Update()
+    private void Awake()
     {
-        SpawnAnimation();
-        DespawnAnimation();
+        EnvironmentDissolveAnimator.AnimationCompleted.AddListener(OnEnvironmentAnimationCompleted);
+        PlayerDissolveAnimator     .AnimationCompleted.AddListener(OnPlayerAnimationCompleted);
     }
 
-    public void FirstSpawn()
+    private void OnEnvironmentAnimationCompleted()
     {
-        EnvironmentDissolveAnimator.ToggleAnimation = true;
-        Respawn();
-    }
-
-    public void Respawn()
-    {
-        PlayerController.gameObject.transform.localRotation = Quaternion.identity;
-        PlayerRigidbody.gameObject.transform.localPosition = Vector3.zero;
-        PlayerRigidbody.useGravity = false;
-        Spawn = true;
-    }
-
-    private void SpawnAnimation()
-    {
-        if (!Spawn)
+        if(Spawning)
         {
-            return;
+            SpawnPlayer();
         }
+    }
 
-        if(!Spawning && EnvironmentDissolveAnimator.Visible)
-        {
-            Spawning = true;
-
-            PlayerDissolveAnimator.ToggleAnimation = true;
-        }
-
-        if(Spawning && PlayerDissolveAnimator.Visible)
+    private void OnPlayerAnimationCompleted()
+    {
+        if(Spawning)
         {
             EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
 
-            PlayerRigidbody.useGravity = true;
-            PlayerController.enabled = true;
+            PlayerController.EnableController();
             ObstacleHandler.Active = true;
 
-            Spawn = false;
             Spawning = false;
+            SpawnCompleted.Invoke();
+        }
+        else if(Despawning)
+        {
+            PlayerController.ResetValues();
+            Despawning = false;
+            DespawnCompleted.Invoke();
         }
     }
 
-    private void DespawnAnimation()
+    public void SpawnEnvironmentAndPlayer()
     {
-        if(!Despawn)
-        {
-            return;
-        }
+        EnvironmentDissolveAnimator.Animate();
+        Spawning = true;
+    }
 
-        if(!Despawning && PlayerDissolveAnimator.Visible)
-        {
-            Despawning = true;
+    public void SpawnPlayer()
+    {
+        Spawning = true;
 
-            PlayerDissolveAnimator.ToggleAnimation = true;
-            EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+        PlayerDissolveAnimator.Animate();
+    }
 
-            PlayerRigidbody.angularVelocity = Vector3.zero;
-            PlayerRigidbody.linearVelocity = Vector3.zero;
-            PlayerRigidbody.useGravity = false;
-            PlayerController.enabled = false;
-            ObstacleHandler.Active = false;
-        }
+    public void DespawnPlayer()
+    {
+        Despawning = true;
 
-        if (Despawning && !PlayerDissolveAnimator.Visible)
-        {
-            Despawn = false;
-            Despawning = false;
-        }
+        PlayerDissolveAnimator.Animate();
+        EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+
+        PlayerController.DisableController();
+        ObstacleHandler.Active = false;
     }
 }

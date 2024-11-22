@@ -31,14 +31,19 @@ public class GameFlow : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        GameAnimator.FirstSpawn();
+        GameAnimator.DespawnCompleted.AddListener(OnDespawnCompleted);
     }
 
-    private void Update()
+    private void Start()
     {
-        if (IsGameEnded && !GameAnimator.Despawn)
+        GameAnimator.SpawnEnvironmentAndPlayer();
+    }
+
+    private void OnDespawnCompleted()
+    {
+        if(IsGameEnded)
         {
             EndMenuUI.SetActive(true);
         }
@@ -66,7 +71,7 @@ public class GameFlow : MonoBehaviour
     public void End()
     {
         IsGameEnded = true;
-        GameAnimator.Despawn = true;
+        GameAnimator.DespawnPlayer();
     }
 
     public void Restart()
@@ -74,6 +79,6 @@ public class GameFlow : MonoBehaviour
         IsGameEnded = false;
         EndMenuUI.SetActive(false);
 
-        GameAnimator.Respawn();
+        GameAnimator.SpawnPlayer();
     }
 }

@@ -1033,14 +1033,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e780b973594804aaee61ffe369fddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  DespawnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerDissolveAnimator: {fileID: 1251804361}
-  PlayerRigidbody: {fileID: 1251804356}
   EnvironmentDissolveAnimator: {fileID: 953896890}
   EnvironmentTextureOffsetAnimator: {fileID: 953896889}
   ObstacleHandler: {fileID: 1204259538}
   PlayerController: {fileID: 1251804363}
-  Spawn: 0
-  Despawn: 0
 --- !u!4 &601349610
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,7 +1874,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToggleAnimation: 0
+  AnimationCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   DissolveAnimations:
   - {fileID: 368473335}
   - {fileID: 1128434845}
@@ -1885,7 +1890,6 @@ MonoBehaviour:
   - {fileID: 1104624779}
   - {fileID: 1020223752}
   - {fileID: 2002973620}
-  Visible: 0
 --- !u!1001 &982835704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2219,7 +2223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204259536}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f499a6d0c7eff9438ee4a2e8eb637c7, type: 3}
   m_Name: 
@@ -2393,9 +2397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aee8763b3b83bb44b51dd17caf9ced9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animate: 0
-  Speed: 1
-  IsAnimating: 0
+  AnimationCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  AnimationSpeed: 1
 --- !u!114 &1251804361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,10 +2413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566f7e6af70c33f4d97fc3a5d5412b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToggleAnimation: 0
+  AnimationCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   DissolveAnimations:
   - {fileID: 1251804360}
-  Visible: 0
 --- !u!114 &1251804362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2547,6 +2553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RollSpeed: 2
+  PlayerRigidbody: {fileID: 1251804356}
   GravitationalFactor: 5
 --- !u!1001 &1310586114
 PrefabInstance:

@@ -1,47 +1,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DissolveAnimator : MonoBehaviour
 {
-    public bool ToggleAnimation = false;
-    public List<DissolveAnimation> DissolveAnimations;
+    public UnityEvent AnimationCompleted = new UnityEvent();
 
-    public bool Visible = false;
+    public List<DissolveAnimation> DissolveAnimations;
 
     private bool Animating = false;
 
-    void Start()
+    private void Awake()
     {
         foreach (var animator in DissolveAnimations)
         {
             animator.GetComponentInParent<Renderer>().material.SetFloat("_Animation", 1.0f);
+            animator.AnimationCompleted.AddListener(OnAnimationCompleted);
         }
     }
 
-    void Update()
+    public void Animate()
     {
-        Dissolve();
-    }
+        Animating = true;
 
-    private void Dissolve()
-    {
-        if (ToggleAnimation)
+        foreach (var animator in DissolveAnimations)
         {
-            Animating = true;
-            ToggleAnimation = false;
-
-            foreach (var animator in DissolveAnimations)
-            {
-                animator.Animate = true;
-                animator.IsAnimating = true;
-            }
+            animator.Animate();
         }
+    }
 
-        if (Animating && DissolveAnimations.FirstOrDefault().IsAnimating == false)
+    private void OnAnimationCompleted()
+    {
+        if(Animating)
         {
             Animating = false;
-            Visible = !Visible;
+            AnimationCompleted.Invoke();
         }
     }
 }

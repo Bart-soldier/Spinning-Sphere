@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 #nullable enable
 
 public class DissolveAnimation : MonoBehaviour
 {
-    public bool Animate = false;
-    public float Speed = 1.0f;
+    public UnityEvent AnimationCompleted = new UnityEvent();
+
+    public float AnimationSpeed = 1.0f;
     
     public bool Visible {
         get => Material.GetFloat("_Animation") < 1.0f;
     }
-    public bool IsAnimating = false;
 
     private Material? material = null;
     public Material Material
@@ -25,54 +26,60 @@ public class DissolveAnimation : MonoBehaviour
             return material;
         }
     }
+
+    private bool IsAnimating = false;
     private bool Appearing = false;
 
-    void Update()
+    private void Update()
     {
-        if (Animate)
-        {
-            if(IsAnimating)
-            {
-                Appearing = !Appearing;
-            }
-            else
-            {
-                Appearing = !Visible;
-            }
-
-            IsAnimating = true;
-            Animate = false;
-        }
-
         if(IsAnimating)
         {
             float animation = Material.GetFloat("_Animation");
-            animation = Appearing ? animation - Speed * Time.deltaTime :
-                                    animation + Speed * Time.deltaTime;
+            animation = Appearing ? animation - AnimationSpeed * Time.deltaTime :
+                                    animation + AnimationSpeed * Time.deltaTime;
 
             IsAnimating = animation > 0.0f && animation < 1.0f;
 
             Material.SetFloat("_Animation", animation);
+
+            if(!IsAnimating)
+            {
+                AnimationCompleted.Invoke();
+            }
         }
+    }
+
+    public void Animate()
+    {
+        if (IsAnimating)
+        {
+            Appearing = !Appearing;
+        }
+        else
+        {
+            Appearing = !Visible;
+        }
+
+        IsAnimating = true;
     }
 
     public void DissolveIn()
     {
         Material.SetFloat("_Animation", 1.0f);
-        Animate = true;
+        Animate();
     }
 
     public void DissolveOut()
     {
         Material.SetFloat("_Animation", 0.0f);
-        Animate = true;
+        Animate();
     }
 
     public void DissolveInIfNotVisible()
     {
         if(!Visible)
         {
-            Animate = true;
+            Animate();
         }
     }
 
@@ -80,7 +87,7 @@ public class DissolveAnimation : MonoBehaviour
     {
         if(Visible)
         {
-            Animate = true;
+            Animate();
         }
     }
 }
