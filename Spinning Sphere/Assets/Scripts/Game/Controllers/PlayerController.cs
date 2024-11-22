@@ -4,57 +4,52 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float RotationSpeed = 2.0f;
-    private float Direction = 0.0f;
-
-    private float GravitationalForce = 9.81f;
+    // Keyboard Movement
+    public float RollSpeed = 2.0f;
+    private float RollDirection = 0.0f;
     private float Roll = Mathf.PI / 2.0f;
-    private bool AttitudeSensorEnabled = false;
+
+    public float GravitationalFactor = 5.0f;
+    private float GravitationalForce = 9.81f;
+    private bool GravitySensorEnabled = false;
 
     private void Awake()
     {
-        if (AttitudeSensor.current != null)
+        if(GravitySensor.current != null)
         {
-            AttitudeSensorEnabled = true;
-            InputSystem.EnableDevice(AttitudeSensor.current);
+            GravitySensorEnabled = true;
+            InputSystem.EnableDevice(GravitySensor.current);
         }
     }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        Direction = -context.ReadValue<Vector2>().x;
+        RollDirection = -context.ReadValue<Vector2>().x;
     }
 
     private void FixedUpdate()
     {
-        if (AttitudeSensorEnabled)
+        float x = 0.0f;
+        float y = 0.0f;
+
+        if (GravitySensorEnabled)
         {
-            Roll = (AttitudeSensor.current.attitude.ReadValue().eulerAngles.z) * Mathf.Deg2Rad;
+            Vector3 gravity = GravitySensor.current.gravity.ReadValue();
+            x = gravity.x;
+            y = gravity.y;
         }
         else
         {
-            Roll += (Direction * RotationSpeed * Time.deltaTime);
+            Roll += (RollDirection * RollSpeed * Time.deltaTime);
             Roll %= (2.0f * Mathf.PI);
             Roll = Roll < 0 ? (2.0f * Mathf.PI) - Roll : Roll;
 
-            //float x = math.cos(Rotation) * GravitationalForce;
-            //float y = math.sin(Rotation) * GravitationalForce;
-
-            //RaycastHit hitInfo;
-
-            //Physics.Raycast(transform.position, new Vector3(x, y, 0.0f), out hitInfo);
-
-
-            //Debug.Log("Barycentric Coordinate : " + hitInfo.point);
-            //Physics.gravity = hitInfo.point;
-
-            //Physics.gravity = new Vector3(x, y, 0.0f);
-            //transform.position = hitInfo.point;
-            //Rigidbody.AddForce(hitInfo.point, ForceMode.Force);
+            x = math.cos(Roll);
+            y = -math.sin(Roll);
         }
 
-        float x =  math.cos(Roll) * GravitationalForce;
-        float y = -math.sin(Roll) * GravitationalForce;
+        x *= GravitationalForce * GravitationalFactor;
+        y *= GravitationalForce * GravitationalFactor;
 
         Physics.gravity = new Vector3(x, y, 0.0f);
     }
