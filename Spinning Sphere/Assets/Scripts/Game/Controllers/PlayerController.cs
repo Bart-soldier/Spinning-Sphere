@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
             GravitySensorEnabled = true;
             InputSystem.EnableDevice(GravitySensor.current);
         }
+
+        PlayerRigidbody.useGravity = false;
     }
 
     public void OnMovement(InputAction.CallbackContext context)

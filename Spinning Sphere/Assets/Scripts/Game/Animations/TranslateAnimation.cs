@@ -5,7 +5,7 @@ public class TranslateAnimation : MonoBehaviour
     public bool Animate = false;
     public float Speed = 60.0f;
 
-    void Update()
+    private void Update()
     {
         if(!Animate)
         {

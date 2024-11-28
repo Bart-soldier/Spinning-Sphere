@@ -30,6 +30,26 @@ public class DissolveAnimator : MonoBehaviour
         }
     }
 
+    public void AnimateIn()
+    {
+        Animating = true;
+
+        foreach (var animator in DissolveAnimations)
+        {
+            animator.DissolveIn();
+        }
+    }
+
+    public void AnimateOut()
+    {
+        Animating = true;
+
+        foreach (var animator in DissolveAnimations)
+        {
+            animator.DissolveOut();
+        }
+    }
+
     private void OnAnimationCompleted()
     {
         if(Animating)

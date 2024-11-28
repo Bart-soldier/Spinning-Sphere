@@ -3,45 +3,48 @@ using UnityEngine;
 
 public class TextureOffsetAnimator : MonoBehaviour
 {
-    public bool ToggleAnimation = false;
     public List<TextureOffsetAnimation> TextureOffsetAnimations;
 
     public float AnimationTargetZ = 6.0f;
     public float AnimationSpeed = 6.0f;
 
-    private bool AnimationFinished = true;
     private bool Animating = false;
+    private bool Speeding = false;
 
     void Update()
     {
         Animate();
     }
 
+    public void StartSpeedAnimation()
+    {
+        Animating = true;
+        Speeding  = true;
+    }
+
+    public void StopSpeedAnimation()
+    {
+        Animating = true;
+        Speeding  = false;
+    }
+
     private void Animate()
     {
-        if (ToggleAnimation)
+        if(Animating)
         {
-            Animating = !Animating;
-            AnimationFinished = false;
-
-            ToggleAnimation = false;
-        }
-
-        if (!AnimationFinished)
-        {
-            float z = Animating ? transform.localScale.z + AnimationSpeed * Time.deltaTime :
-                                  transform.localScale.z - AnimationSpeed * Time.deltaTime;
+            float z = Speeding ? transform.localScale.z + AnimationSpeed * Time.deltaTime :
+                                 transform.localScale.z - AnimationSpeed * Time.deltaTime;
 
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, z);
 
-            AnimationFinished = Animating ? z >= AnimationTargetZ :
-                                                 z <= 1.0f;
+            Animating = Speeding ? z < AnimationTargetZ :
+                                   z > 1.0f;
 
-            if (AnimationFinished)
+            if (!Animating)
             {
                 foreach (var animator in TextureOffsetAnimations)
                 {
-                    animator.Animate = Animating;
+                    animator.Animate = Speeding;
                 }
             }
         }

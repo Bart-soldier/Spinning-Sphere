@@ -37,41 +37,42 @@ public class GameAnimator : MonoBehaviour
     {
         if(Spawning)
         {
-            EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+            Spawning = false;
+
+            EnvironmentTextureOffsetAnimator.StartSpeedAnimation();
 
             PlayerController.EnableController();
             ObstacleHandler.Active = true;
 
-            Spawning = false;
             SpawnCompleted.Invoke();
         }
         else if(Despawning)
         {
-            PlayerController.ResetValues();
             Despawning = false;
+
+            PlayerController.ResetValues();
             DespawnCompleted.Invoke();
         }
     }
 
     public void SpawnEnvironmentAndPlayer()
     {
-        EnvironmentDissolveAnimator.Animate();
         Spawning = true;
+        EnvironmentDissolveAnimator.AnimateIn();
     }
 
     public void SpawnPlayer()
     {
         Spawning = true;
-
-        PlayerDissolveAnimator.Animate();
+        PlayerDissolveAnimator.AnimateIn();
     }
 
     public void DespawnPlayer()
     {
         Despawning = true;
 
-        PlayerDissolveAnimator.Animate();
-        EnvironmentTextureOffsetAnimator.ToggleAnimation = true;
+        PlayerDissolveAnimator.AnimateOut();
+        EnvironmentTextureOffsetAnimator.StopSpeedAnimation();
 
         PlayerController.DisableController();
         ObstacleHandler.Active = false;
