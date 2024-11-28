@@ -1846,7 +1846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4c2f1a9055ff34685e219854506c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToggleAnimation: 0
   TextureOffsetAnimations:
   - {fileID: 368473338}
   - {fileID: 1128434848}
