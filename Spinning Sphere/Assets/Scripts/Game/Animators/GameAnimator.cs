@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class GameAnimator : MonoBehaviour
 {
-    public UnityEvent SpawnCompleted = new UnityEvent();
-    public UnityEvent DespawnCompleted = new UnityEvent();
+    public static UnityEvent SpawnCompleted   = new UnityEvent();
+    public static UnityEvent DespawnCompleted = new UnityEvent();
 
     public DissolveAnimator PlayerDissolveAnimator;
 

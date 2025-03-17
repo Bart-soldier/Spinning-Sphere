@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
-    public GameFlow GameFlow;
+    public GameController GameFlow;
 
     private void OnTriggerEnter(Collider other)
     {
