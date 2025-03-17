@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class GameController : MonoBehaviour
 {
     public static UnityEvent<bool> PausedToggled = new();
-    //public static UnityEvent GameEnded = new();
-    public static UnityEvent GameStarted = new();
+    public static UnityEvent       GameStarted   = new();
+    //public static UnityEvent       GameEnded     = new();
 
     public static bool IsGamePaused = false;
     public static bool IsGameEnded  = false;
@@ -20,8 +20,6 @@ public class GameController : MonoBehaviour
     {
         if(context.started)
         {
-            Debug.Log("Escape");
-
             if (!IsGameEnded)
             {
                 if (IsGamePaused)

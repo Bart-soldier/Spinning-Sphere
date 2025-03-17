@@ -14,10 +14,13 @@ public class Sound
     [HideInInspector]
     public AudioSource Source;
 
-    public void Initialize()
+    public void Initialize(AudioSource source)
     {
-        Source.volume = Volume;
-        Source.pitch = Pitch;
+        Source = source;
+
+        Source.clip        = Clip;
+        Source.volume      = Volume;
+        Source.pitch       = Pitch;
         Source.playOnAwake = false;
     }
 

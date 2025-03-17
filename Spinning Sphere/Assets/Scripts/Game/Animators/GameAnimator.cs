@@ -16,7 +16,7 @@ public class GameAnimator : MonoBehaviour
 
     public PlayerController PlayerController;
 
-    private bool Spawning = false;
+    private bool Spawning   = false;
     private bool Despawning = false;
 
     private void Awake()

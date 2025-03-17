@@ -1,12 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource Music;
+    public Sound Music;
 
-    public AudioSource PreMusicSFX;
-    public AudioSource PostMusicSFX;
-    public AudioSource PauseSFX;
+    public Sound PreMusicSFX;
+    public Sound PostMusicSFX;
+    public Sound PauseSFX;
 
     void Awake()
     {
@@ -14,6 +15,11 @@ public class AudioController : MonoBehaviour
         GameController.PausedToggled   .AddListener(OnPauseToggled    );
         GameAnimator  .SpawnCompleted  .AddListener(OnSpawnCompleted  );
         GameAnimator  .DespawnCompleted.AddListener(OnDespawnCompleted);
+
+        Music       .Initialize(gameObject.AddComponent<AudioSource>());
+        PreMusicSFX .Initialize(gameObject.AddComponent<AudioSource>());
+        PostMusicSFX.Initialize(gameObject.AddComponent<AudioSource>());
+        PauseSFX    .Initialize(gameObject.AddComponent<AudioSource>());
     }
 
     private void OnGameStarted()
